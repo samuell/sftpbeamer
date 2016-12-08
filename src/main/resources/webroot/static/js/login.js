@@ -21,9 +21,6 @@ $(document).ready(function() {
         async: false
     });
 
-    // Populate the hostname inputs with values from config file
-    $('#host1-hostname').val(host_info.hosts['host1']);
-    $('#host2-hostname').val(host_info.hosts['host2']);
 
     // Define button click action
     $('.btn-connect').click(function(event) {
@@ -87,6 +84,7 @@ $(document).ready(function() {
                     $("#" + target + "-username").prop("disabled", true);
                     $("#" + target + "-hostname").prop("disabled", true);
                     $("#" + target + "-port").prop("disabled", true);
+                    showWarningAlertInTop(target, "Please encrypt your data first before you transfer them!");
                 }
             },
             error: function (jqXhR, textStatus, errorThrown) {
